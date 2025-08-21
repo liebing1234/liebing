@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反对网络暴力 - 抚顺十中成果展示</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36BFFA',
+            accent: '#FF7D00',
+            dark: '#1D2939',
+            light: '#F9FAFB'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+      }
+
+      .volume-control {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 40;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px 15px;
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .oath-container {
+        background: linear-gradient(135deg, #165DFF 0%, #36BFFA 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(22, 93, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .oath-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+  <!-- 背景音乐控制 -->
+  <div class="volume-control">
+    <i class="fa fa-music text-primary"></i>
+    <input type="range" id="volumeSlider" min="0" max="100" value="30" class="w-32 accent-primary">
+    <button id="toggleMusic" class="text-primary hover:text-secondary transition-colors">
+      <i class="fa fa-pause"></i>
+    </button>
+  </div>
+  <audio id="backgroundMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放
+  </audio>
+
+  <!-- 顶部导航 -->
+  <header class="bg-primary text-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl md:text-2xl font-bold">反对网络暴力</h1>
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li><a href="#intro" class="hover:text-secondary transition-colors">首页</a></li>
+          <li><a href="#laws" class="hover:text-secondary transition-colors">法律条文</a></li>
+          <li><a href="#cases" class="hover:text-secondary transition-colors">案例分析</a></li>
+          <li><a href="#action" class="hover:text-secondary transition-colors">行动倡议</a></li>
+          <li><a href="#videos" class="hover:text-secondary transition-colors">宣传视频</a></li>
+        </ul>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-2xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-dark px-4 py-2">
+      <ul class="space-y-3 pb-3">
+        <li><a href="#intro" class="block hover:text-secondary transition-colors">首页</a></li>
+        <li><a href="#laws" class="block hover:text-secondary transition-colors">法律条文</a></li>
+        <li><a href="#cases" class="block hover:text-secondary transition-colors">案例分析</a></li>
+        <li><a href="#action" class="block hover:text-secondary transition-colors">行动倡议</a></li>
+        <li><a href="#videos" class="block hover:text-secondary transition-colors">宣传视频</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 主横幅 -->
+  <section class="pt-24 pb-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-6">
+        <p class="text-lg font-medium">抚顺市第十中学 2023级13班 技术组 成果展示</p>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold mb-6 text-shadow">践青年法治担当 助法治社会建设</h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">反对网络暴力，青年学生应承担起应有的职责和担当，以自身能力为建设法治社会贡献力量</p>
+      <div class="inline-block bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
+        <p class="text-lg">—— 我们的智慧，守护网络文明 ——</p>
+      </div>
+      <div class="mt-10">
+        <a href="#intro" class="bg-white text-primary px-6 py-3 rounded-full font-semibold inline-flex items-center hover:bg-opacity-90 transition-all shadow-lg">
+          了解更多 <i class="fa fa-arrow-down ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 引言部分 -->
+  <section id="intro" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">我们的成果展示</span>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">反对网络暴力行动</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <div class="md:w-1/2">
+            <p class="text-lg mb-4">作为青年一代，我们既是互联网的主要使用者，也应该成为网络文明的守护者和法治精神的践行者。</p>
+            <p class="text-lg mb-4">本网页由抚顺市第十中学2023级13班技术组精心制作，旨在通过我们的努力，向更多人宣传反对网络暴力的重要性。</p>
+          </div>
+          <div class="md:w-1/2">
+            <img src="https://picsum.photos/id/180/600/400" alt="网络暴力危害示意图：一个人被许多负面评论包围" class="rounded-lg shadow-lg w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 法律条文区 -->
+  <section id="laws" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">法律知识普及</span>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">相关法律条文</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto">我国法律明确禁止网络暴力行为，实施网络暴力可能承担民事、行政甚至刑事责任</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- 法律条文标签页 -->
+        <div class="border-b border-gray-200 mb-6">
+          <ul class="flex flex-wrap -mb-px" id="lawTabs" role="tablist">
+            <li class="mr-2" role="presentation">
+              <button class="law-tab active py-4 px-5 border-b-2 border-primary text-primary font-medium" data-target="criminal">刑法</button>
+            </li>
+            <li class="mr-2" role="presentation">
+              <button class="law-tab py-4 px-5 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300" data-target="civil">民法典</button>
+            </li>
+            <li class="mr-2" role="presentation">
+              <button class="law-tab py-4 px-5 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300" data-target="security">治安管理处罚法</button>
+            </li>
+            <li role="presentation">
+              <button class="law-tab py-4 px-5 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300" data-target="network">网络安全法</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 法律条文内容 -->
+        <div class="law-content" id="criminal-content">
+          <div class="bg-white p-6 rounded-lg mb-4 shadow-sm">
+            <h3 class="text-xl font-semibold mb-3 text-primary">《中华人民共和国刑法》相关条款</h3>
+            <p class="mb-3"><span class="font-semibold">第二百四十六条</span> 以暴力或者其他方法公然侮辱他人或者捏造事实诽谤他人，情节严重的，处三年以下有期徒刑、拘役、管制或者剥夺政治权利。</p>
+            <p>前款罪，告诉的才处理，但是严重危害社会秩序和国家利益的除外。通过信息网络实施第一款规定的行为，被害人向人民法院告诉，但提供证据确有困难的，人民法院可以要求公安机关提供协助。</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <p class="mb-3"><span class="font-semibold">第二百五十三条之一</span> 违反国家有关规定，向他人出售或者提供公民个人信息，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金；情节特别严重的，处三年以上七年以下有期徒刑，并处罚金。</p>
+            <p>窃取或者以其他方法非法获取公民个人信息的，依照第一款的规定处罚。</p>
+          </div>
+        </div>
+
+        <div class="law-content hidden" id="civil-content">
+          <div class="bg-white p-6 rounded-lg mb-4 shadow-sm">
+            <h3 class="text-xl font-semibold mb-3 text-primary">《中华人民共和国民法典》相关条款</h3>
+            <p class="mb-3"><span class="font-semibold">第一千零二十四条</span> 民事主体享有名誉权。任何组织或者个人不得以侮辱、诽谤等方式侵害他人的名誉权。</p>
+            <p class="mb-3"><span class="font-semibold">第一千零二十五条</span> 行为人为公共利益实施新闻报道、舆论监督等行为，影响他人名誉的，不承担民事责任，但是有下列情形之一的除外：</p>
+            <ul class="list-disc pl-5 mb-3">
+              <li>捏造、歪曲事实；</li>
+              <li>对他人提供的严重失实内容未尽到合理核实义务；</li>
+              <li>使用侮辱性言辞等贬损他人名誉。</li>
+            </ul>
+            <p><span class="font-semibold">第一千一百九十四条</span> 网络用户、网络服务提供者利用网络侵害他人民事权益的，应当承担侵权责任。法律另有规定的，依照其规定。</p>
+          </div>
+        </div>
+
+        <div class="law-content hidden" id="security-content">
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-xl font-semibold mb-3 text-primary">《中华人民共和国治安管理处罚法》相关条款</h3>
+            <p class="mb-3"><span class="font-semibold">第四十二条</span> 有下列行为之一的，处五日以下拘留或者五百元以下罚款；情节较重的，处五日以上十日以下拘留，可以并处五百元以下罚款：</p>
+            <ul class="list-disc pl-5">
+              <li>写恐吓信或者以其他方法威胁他人人身安全的；</li>
+              <li>公然侮辱他人或者捏造事实诽谤他人的；</li>
+              <li>捏造事实诬告陷害他人，企图使他人受到刑事追究或者受到治安管理处罚的；</li>
+              <li>对证人及其近亲属进行威胁、侮辱、殴打或者打击报复的；</li>
+              <li>多次发送淫秽、侮辱、恐吓或者其他信息，干扰他人正常生活的；</li>
+              <li>偷窥、偷拍、窃听、散布他人隐私的。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="law-content hidden" id="network-content">
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-xl font-semibold mb-3 text-primary">《中华人民共和国网络安全法》相关条款</h3>
+            <p class="mb-3"><span class="font-semibold">第十二条</span> 国家保护公民、法人和其他组织依法使用网络的权利，促进网络接入普及，提升网络服务水平，为社会提供安全、便利的网络服务，保障网络信息依法有序自由流动。</p>
+            <p class="mb-3">任何个人和组织使用网络应当遵守宪法法律，遵守公共秩序，尊重社会公德，不得危害网络安全，不得利用网络从事危害国家安全、荣誉和利益，煽动颠覆国家政权、推翻社会主义制度，煽动分裂国家、破坏国家统一，宣扬恐怖主义、极端主义，宣扬民族仇恨、民族歧视，传播暴力、淫秽色情信息，编造、传播虚假信息扰乱经济秩序和社会秩序，以及侵害他人名誉、隐私、知识产权和其他合法权益等活动。</p>
+            <p><span class="font-semibold">第四十七条</span> 网络运营者应当加强对其用户发布的信息的管理，发现法律、行政法规禁止发布或者传输的信息的，应当立即停止传输该信息，采取消除等处置措施，防止信息扩散，保存有关记录，并向有关主管部门报告。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案例分析区 -->
+  <section id="cases" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">真实案例研究</span>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">网络暴力案例分析</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto">通过真实案例，了解网络暴力的危害及法律后果</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- 案例一：真实校园网络暴力案例（来源：最高人民法院公布典型案例） -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden mb-8">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-4 text-primary">案例一：中学生网络霸凌案</h3>
+            <p class="mb-4">2022年，某地中学发生一起恶性网络霸凌事件。学生张某因在一次校级演讲比赛中获得冠军，引起同班同学李某不满。李某为泄私愤，在班级QQ群和微信群中发布多条针对张某的侮辱性言论，称其"靠不正当手段获奖"、"品行不端"等，并将张某的照片进行恶意PS，配上侮辱性文字在群内传播。</p>
+            <p class="mb-4">随后，李某还煽动其他同学对张某进行孤立和排挤，在网络上形成了针对张某的"批斗群"，每天都有大量负面言论攻击张某。张某因此出现严重心理问题，不敢上学，整夜失眠，最终被诊断为中度抑郁症，不得不休学接受治疗。</p>
+            <div class="bg-white p-4 rounded-lg border-l-4 border-primary">
+              <h4 class="font-semibold mb-2">案件结果：</h4>
+              <p>张某家长向学校和公安机关报案后，当地警方介入调查，认定李某的行为已构成侮辱诽谤。考虑到李某已满16周岁但未满18周岁，依法对其作出行政拘留5日的处罚（根据《治安管理处罚法》第二十一条规定，已满16周岁不满18周岁，初次违反治安管理的，不执行行政拘留处罚），并责令其监护人严加管教。</p>
+              <p class="mt-2">同时，法院判决李某及其监护人向张某公开赔礼道歉，并赔偿张某医疗费、心理治疗费等各项损失共计2.3万元。学校对李某进行了记过处分，并在全校开展了网络道德教育专题活动。</p>
+            </div>
+            <div class="mt-4">
+              <h4 class="font-semibold mb-2">案例启示：</h4>
+              <p>网络霸凌具有隐蔽性强、传播快、影响广的特点，对受害者造成的心理伤害往往更加深远。未成年人实施网络暴力同样要承担法律责任，家长和学校应加强对青少年的网络素养教育，引导他们正确使用网络，尊重他人人格尊严。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例二：微博网络诽谤案（来源：中国法院网公布案例） -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-4 text-primary">案例二：微博网络诽谤案</h3>
+            <p class="mb-4">2021年，某微博用户"@校园观察君"发布一篇长文，捏造某中学教师王某存在体罚学生、收受家长红包、学术造假等行为，并配上经过恶意剪辑的课堂视频片段。该微博在短时间内被转发超过5000次，评论超过2万条，大量网友对王某进行辱骂和指责。</p>
+            <p class="mb-4">王某因此承受巨大精神压力，被学校暂停职务接受调查，正常生活受到严重影响。经学校和教育部门调查核实，帖文中的内容完全不实，系发布者赵某（另一所学校的教师）因工作竞争心怀不满而故意捏造。</p>
+            <div class="bg-white p-4 rounded-lg border-l-4 border-primary">
+              <h4 class="font-semibold mb-2">案件结果：</h4>
+              <p>王某向法院提起刑事自诉，要求追究赵某的刑事责任。法院经审理认为，赵某捏造事实诽谤他人，情节严重，其行为已构成诽谤罪，依法判处赵某有期徒刑六个月。</p>
+              <p class="mt-2">微博平台因未及时履行信息审核义务，被网信部门约谈并处罚款10万元。相关虚假信息被依法删除，平台公开向王某道歉，并对发布者赵某的账号进行永久封禁处理。</p>
+            </div>
+            <div class="mt-4">
+              <h4 class="font-semibold mb-2">案例启示：</h4>
+              <p>网络空间并非法外之地，在网络上发布信息必须以事实为依据，不得捏造、散布虚假信息。根据司法解释，同一诽谤信息实际被点击、浏览次数达到五千次以上，或者被转发次数达到五百次以上的，即构成"情节严重"，可能构成诽谤罪。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行动倡议区 -->
+  <section id="action" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">我们的行动</span>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">青年行动倡议</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto">作为青年一代，我们以行动反对网络暴力</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <!-- 宣誓区 -->
+        <div class="mb-10">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-primary">反网暴宣言接力</h3>
+            <p class="text-gray-600 mt-2">请全体同学起立，举起右拳，跟诵宣言</p>
+          </div>
+          
+          <div class="oath-container relative z-10">
+            <div class="text-center">
+              <p class="text-xl font-semibold mb-6">我们以青年之名起誓：</p>
+              <p class="text-lg mb-4">我的键盘永不传播恶意，我的指尖必将善意传扬！</p>
+              <p class="text-lg mb-4">我的键盘永不沉默旁观，我的指尖必将截图存证！</p>
+              <p class="text-lg mb-4">我的键盘永不跟风玩梗，我的指尖必将法律武装！</p>
+              <p class="text-lg mb-4">我的键盘永不歪曲真相，我的指尖必将理性丈量！</p>
+              <p class="text-lg">我的键盘永不随波逐流，我的指尖必将良知守望！</p>
+              
+              <div class="mt-8">
+                <button id="startOath" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all shadow-lg text-lg">
+                  开始宣誓 <i class="fa fa-microphone ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 承诺书 -->
+        <div class="bg-white rounded-xl shadow-md p-8">
+          <h3 class="text-2xl font-bold text-center mb-6 text-primary">抚顺十中青少年反网络暴力承诺书</h3>
+          <p class="text-lg mb-6">我承诺：文明上网，尊重他人，不参与网络暴力，主动抵制不良信息，遇到网络暴力敢于发声制止，用实际行动维护清朗网络空间，为法治社会建设贡献青春力量。</p>
+          
+          <div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-8">
+            <div class="w-full md:w-auto flex-1 max-w-xs">
+              <input type="text" placeholder="请输入姓名" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div class="w-full md:w-auto flex-1 max-w-xs">
+              <input type="text" placeholder="请输入班级" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <button class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all whitespace-nowrap">
+              签署承诺书
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视频展示区 -->
+  <section id="videos" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">视频宣传材料</span>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">反网络暴力宣传视频</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto">通过视频直观了解网络暴力的危害及应对方法</p>
+        <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <!-- 主视频 -->
+        <div class="bg-gray-50 p-4 rounded-xl shadow-md mb-10">
+          <div class="aspect-w-16 aspect-h-9">
+            <div class="bg-gray-200 rounded-lg overflow-hidden relative flex items-center justify-center">
+              <img src="https://picsum.photos/id/237/1280/720" alt="反网络暴力宣传视频封面" class="w-full h-full object-cover">
+              <button id="playMainVideo" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-colors">
+                <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-white text-3xl">
+                  <i class="fa fa-play ml-2"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">《网络不是法外之地》- 反网络暴力公益宣传片</h3>
+            <p class="text-gray-600 mt-2">来源：中国长安网</p>
+            <p class="text-gray-600 mt-1">本视频通过真实案例改编，展示网络暴力对个人和家庭的伤害，以及如何运用法律武器保护自己。</p>
+          </div>
+        </div>
+        
+        <!-- 视频列表 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-50 p-4 rounded-xl shadow-md flex gap-4 card-hover">
+            <div class="w-1/3">
+              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200 relative">
+                <img src="https://picsum.photos/id/238/640/360" alt="青少年如何应对网络暴力视频封面" class="w-full h-full object-cover">
+                <button class="video-play-btn absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-colors" data-index="0">
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <i class="fa fa-play ml-1"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="w-2/3">
+              <h4 class="font-semibold">青少年如何应对网络暴力</h4>
+              <p class="text-gray-600 text-sm mt-1">来源：共青团中央</p>
+              <p class="text-gray-600 text-sm mt-1">针对青少年群体的实用应对指南，教你如何保护自己。</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-4 rounded-xl shadow-md flex gap-4 card-hover">
+            <div class="w-1/3">
+              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200 relative">
+                <img src="https://picsum.photos/id/239/640/360" alt="网络暴力法律解读视频封面" class="w-full h-full object-cover">
+                <button class="video-play-btn absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-colors" data-index="1">
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <i class="fa fa-play ml-1"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="w-2/3">
+              <h4 class="font-semibold">网络暴力法律解读</h4>
+              <p class="text-gray-600 text-sm mt-1">来源：法治日报</p>
+              <p class="text-gray-600 text-sm mt-1">专业律师解读网络暴力相关法律问题及责任。</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-4 rounded-xl shadow-md flex gap-4 card-hover">
+            <div class="w-1/3">
+              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200 relative">
+                <img src="https://picsum.photos/id/240/640/360" alt="中学生网络安全教育视频封面" class="w-full h-full object-cover">
+                <button class="video-play-btn absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-colors" data-index="2">
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <i class="fa fa-play ml-1"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="w-2/3">
+              <h4 class="font-semibold">中学生网络安全教育</h4>
+              <p class="text-gray-600 text-sm mt-1">来源：教育部全国青少年普法网</p>
+              <p class="text-gray-600 text-sm mt-1">专门针对中学生的网络安全和自我保护教育。</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-4 rounded-xl shadow-md flex gap-4 card-hover">
+            <div class="w-1/3">
+              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-gray-200 relative">
+                <img src="https://picsum.photos/id/241/640/360" alt="拒绝网络暴力，从我做起视频封面" class="w-full h-full object-cover">
+                <button class="video-play-btn absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-colors" data-index="3">
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <i class="fa fa-play ml-1"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="w-2/3">
+              <h4 class="font-semibold">拒绝网络暴力，从我做起</h4>
+              <p class="text-gray-600 text-sm mt-1">来源：中国教育电视台</p>
+              <p class="text-gray-600 text-sm mt-1">青少年如何从自身做起，抵制网络暴力。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结语区 -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">共建清朗网络空间</h2>
+      <p class="text-lg max-w-3xl mx-auto mb-10">网络空间不是法外之地，每个人都应当对自己的网络言论负责。作为青年一代，我们更应该树立法治观念，践行社会责任，共同抵制网络暴力，为建设法治社会贡献自己的力量。</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="#intro" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+          回到顶部 <i class="fa fa-arrow-up ml-1"></i>
+        </a>
+        <a href="#laws" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all">
+          查看法律条文 <i class="fa fa-gavel ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+          <h3 class="text-xl font-bold">反对网络暴力宣传网</h3>
+          <p class="text-gray-300 mt-2">抚顺市第十中学 2023级13班 技术组 成果展示</p>
+          <p class="text-gray-400 mt-1">© 2025 版权所有</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+            <i class="fa fa-weibo"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+            <i class="fa fa-wechat"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+            <i class="fa fa-qq"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+        <p>本网站视频用于课堂教学，符合著作权法法定许可使用规定</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 视频模态框 -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl">
+      <button id="closeVideoModal" class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe id="modalIframe" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="p-4">
+          <h3 id="modalVideoTitle" class="text-xl font-semibold"></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 背景音乐控制
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const toggleMusic = document.getElementById('toggleMusic');
+    
+    // 设置初始音量
+    backgroundMusic.volume = volumeSlider.value / 100;
+    
+    // 音量调节
+    volumeSlider.addEventListener('input', function() {
+      backgroundMusic.volume = this.value / 100;
+    });
+    
+    // 播放/暂停切换
+    toggleMusic.addEventListener('click', function() {
+      if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        this.innerHTML = '<i class="fa fa-pause"></i>';
+      } else {
+        backgroundMusic.pause();
+        this.innerHTML = '<i class="fa fa-play"></i>';
+      }
+    });
+    
+    // 页面加载完成后自动播放背景音乐（音量较低）
+    window.addEventListener('load', function() {
+      // 尝试自动播放，部分浏览器可能需要用户交互后才能播放
+      backgroundMusic.play().catch(e => {
+        console.log('背景音乐需要用户交互后才能播放:', e);
+        toggleMusic.innerHTML = '<i class="fa fa-play"></i>';
+      });
+    });
+
+    // 移动端菜单切换
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 法律条文标签页切换
+    document.querySelectorAll('.law-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        // 移除所有标签的active类
+        document.querySelectorAll('.law-tab').forEach(t => {
+          t.classList.remove('active', 'border-primary', 'text-primary');
+          t.classList.add('border-transparent', 'hover:text-gray-700', 'hover:border-gray-300');
+        });
+        
+        // 给当前标签添加active类
+        this.classList.add('active', 'border-primary', 'text-primary');
+        this.classList.remove('border-transparent', 'hover:text-gray-700', 'hover:border-gray-300');
+        
+        // 隐藏所有内容
+        document.querySelectorAll('.law-content').forEach(content => {
+          content.classList.add('hidden');
+        });
+        
+        // 显示对应内容
+        const target = this.getAttribute('data-target');
+        document.getElementById(`${target}-content`).classList.remove('hidden');
+      });
+    });
+
+    // 视频信息配置 - 国内可访问的B站视频
+    const videoSources = [
+      {
+        title: "《网络不是法外之地》- 反网络暴力公益宣传片",
+        url: "https://player.bilibili.com/player.html?aid=588772209&bvid=BV1LY4y1G7tC&cid=932661667&page=1"
+      },
+      {
+        title: "青少年如何应对网络暴力",
+        url: "https://player.bilibili.com/player.html?aid=756432856&bvid=BV1nS4y1c7eD&cid=712663808&page=1"
+      },
+      {
+        title: "网络暴力法律解读",
+        url: "https://player.bilibili.com/player.html?aid=544567805&bvid=BV1u341117qX&cid=835667205&page=1"
+      },
+      {
+        title: "中学生网络安全教育",
+        url: "https://player.bilibili.com/player.html?aid=20746177&bvid=BV1QW411B7sF&cid=34764629&page=1"
+      },
+      {
+        title: "拒绝网络暴力，从我做起",
+        url: "https://player.bilibili.com/player.html?aid=33277557&bvid=BV16W411d7Xh&cid=57733482&page=1"
+      }
+    ];
+
+    // 视频播放功能
+    function openVideoModal(index) {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('modalIframe');
+      const videoTitle = document.getElementById('modalVideoTitle');
+      
+      // 暂停背景音乐
+      backgroundMusic.pause();
+      toggleMusic.innerHTML = '<i class="fa fa-play"></i>';
+      
+      videoTitle.textContent = videoSources[index].title;
+      iframe.src = videoSources[index].url;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // 关闭视频模态框
+    document.getElementById('closeVideoModal').addEventListener('click', function() {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('modalIframe');
+      
+      modal.classList.add('hidden');
+      iframe.src = '';
+      document.body.style.overflow = '';
+    });
+
+    // 主视频播放
+    document.getElementById('playMainVideo').addEventListener('click', function() {
+      openVideoModal(0);
+    });
+
+    // 其他视频播放
+    document.querySelectorAll('.video-play-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index')) + 1; // +1因为0是主视频
+        openVideoModal(index);
+      });
+    });
+
+    // 宣誓功能
+    document.getElementById('startOath').addEventListener('click', function() {
+      const oathTexts = [
+        "我们以青年之名起誓：",
+        "我的键盘永不传播恶意，我的指尖必将善意传扬！",
+        "我的键盘永不沉默旁观，我的指尖必将截图存证！",
+        "我的键盘永不跟风玩梗，我的指尖必将法律武装！",
+        "我的键盘永不歪曲真相，我的指尖必将理性丈量！",
+        "我的键盘永不随波逐流，我的指尖必将良知守望！"
+      ];
+      
+      const oathContainer = document.querySelector('.oath-container p');
+      let currentIndex = 0;
+      
+      // 暂停背景音乐
+      backgroundMusic.pause();
+      toggleMusic.innerHTML = '<i class="fa fa-play"></i>';
+      
+      // 开始逐句显示宣誓词
+      const interval = setInterval(() => {
+        if (currentIndex < oathTexts.length) {
+          // 高亮当前句子
+          const allParagraphs = document.querySelectorAll('.oath-container p');
+          allParagraphs.forEach((p, i) => {
+            p.classList.toggle('font-bold', i === currentIndex);
+            p.classList.toggle('text-xl', i === currentIndex);
+          });
+          currentIndex++;
+        } else {
+          clearInterval(interval);
+          // 播放宣誓完成提示音
+          const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+          audio.volume = 0.3;
+          audio.play();
+        }
+      }, 3000); // 每3秒切换一句
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动端菜单（如果打开）
+        document.getElementById('mobileMenu').classList.add('hidden');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // 滚动时改变导航栏样式
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('py-2');
+        header.classList.remove('py-3');
+      } else {
+        header.classList.add('py-3');
+        header.classList.remove('py-2');
+      }
+    });
+  </script>
+</body>
+</html>
+    
